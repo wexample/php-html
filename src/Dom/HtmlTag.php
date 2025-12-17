@@ -20,9 +20,12 @@ abstract class HtmlTag
 
     public function setAttr(string $name, ?string $value): static
     {
-        if ($value !== null) {
-            $this->attributes[$name] = $value;
+        if ($value === null) {
+            unset($this->attributes[$name]);
+            return $this;
         }
+
+        $this->attributes[$name] = $value;
         return $this;
     }
 
