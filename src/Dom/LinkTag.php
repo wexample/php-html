@@ -16,7 +16,7 @@ class LinkTag extends HtmlTag
         return $this->getAttr('href');
     }
 
-    public function setHref(string $href): static
+    public function setHref(?string $href): static
     {
         return $this->setAttr('href', $href);
     }

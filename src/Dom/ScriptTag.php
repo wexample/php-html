@@ -11,7 +11,7 @@ class ScriptTag extends HtmlTag
         return $this->getAttr('src');
     }
 
-    public function setSrc(string $src): static
+    public function setSrc(?string $src): static
     {
         return $this->setAttr('src', $src);
     }
