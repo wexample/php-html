@@ -8,31 +8,31 @@ class LinkTag extends HtmlTag
 
     public function __construct()
     {
-        $this->attr('rel', 'stylesheet');
+        $this->setAttr('rel', 'stylesheet');
     }
 
-    public function href(string $href): static
+    public function setHref(string $href): static
     {
-        return $this->attr('href', $href);
+        return $this->setAttr('href', $href);
     }
 
-    public function rel(string $rel): static
+    public function setRel(string $rel): static
     {
-        return $this->attr('rel', $rel);
+        return $this->setAttr('rel', $rel);
     }
 
-    public function media(string $media): static
+    public function setMedia(string $media): static
     {
-        return $this->attr('media', $media);
+        return $this->setAttr('media', $media);
     }
 
-    public function crossorigin(string $crossorigin): static
+    public function setCrossOrigin(string $crossorigin): static
     {
-        return $this->attr('crossorigin', $crossorigin);
+        return $this->setAttr('crossorigin', $crossorigin);
     }
 
-    public function integrity(string $integrity): static
+    public function setIntegrity(string $integrity): static
     {
-        return $this->attr('integrity', $integrity);
+        return $this->setAttr('integrity', $integrity);
     }
 }

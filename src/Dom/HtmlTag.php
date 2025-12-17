@@ -7,18 +7,28 @@ abstract class HtmlTag
     protected string $tagName;
     protected array $attributes = [];
 
-    public function id(string $id): static
+    public function setId(string $id): static
     {
         $this->attributes['id'] = $id;
         return $this;
     }
 
-    public function attr(string $name, ?string $value): static
+    public function getId(): ?string
+    {
+        return $this->getAttribute('id');
+    }
+
+    public function setAttr(string $name, ?string $value): static
     {
         if ($value !== null) {
             $this->attributes[$name] = $value;
         }
         return $this;
+    }
+
+    public function getAttr(string $name): ?string
+    {
+        return $this->getAttribute($name);
     }
 
     public function getAttributes(): array

@@ -6,12 +6,12 @@ class ScriptTag extends HtmlTag
 {
     protected string $tagName = 'script';
 
-    public function src(string $src): static
+    public function setSrc(string $src): static
     {
-        return $this->attr('src', $src);
+        return $this->setAttr('src', $src);
     }
 
-    public function async(bool $async = true): static
+    public function setAsync(bool $async = true): static
     {
         if ($async) {
             $this->attributes['async'] = 'async';
@@ -21,7 +21,7 @@ class ScriptTag extends HtmlTag
         return $this;
     }
 
-    public function defer(bool $defer = true): static
+    public function setDefer(bool $defer = true): static
     {
         if ($defer) {
             $this->attributes['defer'] = 'defer';
@@ -31,9 +31,9 @@ class ScriptTag extends HtmlTag
         return $this;
     }
 
-    public function type(string $type): static
+    public function setType(string $type): static
     {
-        return $this->attr('type', $type);
+        return $this->setAttr('type', $type);
     }
 
     public function render(): string
