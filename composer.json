@@ -21,7 +21,8 @@
     }
   ],
   "require": {
-    "php": ">=8.2"
+    "php": ">=8.2",
+    "wexample/php-helpers": "^1.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*"
