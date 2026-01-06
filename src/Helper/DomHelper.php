@@ -2,12 +2,12 @@
 
 namespace Wexample\PhpHtml\Helper;
 
-use Wexample\Helpers\Helper\TextHelper;
-
 use function implode;
 use function is_null;
 use function preg_replace;
 use function trim;
+
+use Wexample\Helpers\Helper\TextHelper;
 
 class DomHelper
 {
@@ -87,4 +87,3 @@ class DomHelper
         );
     }
 }
-

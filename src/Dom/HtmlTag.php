@@ -10,6 +10,7 @@ abstract class HtmlTag
     public function setId(string $id): static
     {
         $this->attributes['id'] = $id;
+
         return $this;
     }
 
@@ -22,10 +23,12 @@ abstract class HtmlTag
     {
         if ($value === null) {
             unset($this->attributes[$name]);
+
             return $this;
         }
 
         $this->attributes[$name] = $value;
+
         return $this;
     }
 

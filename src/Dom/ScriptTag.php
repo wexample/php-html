@@ -28,6 +28,7 @@ class ScriptTag extends HtmlTag
         } else {
             unset($this->attributes['async']);
         }
+
         return $this;
     }
 
@@ -43,6 +44,7 @@ class ScriptTag extends HtmlTag
         } else {
             unset($this->attributes['defer']);
         }
+
         return $this;
     }
 
