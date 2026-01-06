@@ -1,6 +1,6 @@
 # wexample/php-html
 
-Version: 0.0.2
+Version: 0.0.3
 
 Useful, helpers for html tags manipulations
 
