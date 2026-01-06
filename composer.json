@@ -1,9 +1,9 @@
 {
-  "name": "wexample/php-pseudocode",
+  "name": "wexample/php-html",
   "description": "Useful, helpers for html tags manipulations",
   "type": "library",
   "license": "MIT",
-  "version": "1.0.71",
+  "version": "0.0.1",
   "autoload": {
     "psr-4": {
       "Wexample\\PhpHtml\\": "src/"
