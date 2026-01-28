@@ -1,6 +1,6 @@
 # wexample/php-html
 
-Version: 0.0.13
+Version: 0.0.14
 
 Useful, helpers for html tags manipulations
 
@@ -130,7 +130,7 @@ Refer to each package's documentation for specific version compatibility require
 ## Dependencies
 
 - php: >=8.2
-- wexample/php-helpers: 1.0.92
+- wexample/php-helpers: 1.0.93
 
 
 # About us
