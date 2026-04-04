@@ -22,8 +22,7 @@ abstract class HtmlTag
     public function setAttr(
         string $name,
         ?string $value
-    ): static
-    {
+    ): static {
         if ($value === null) {
             unset($this->attributes[$name]);
 
