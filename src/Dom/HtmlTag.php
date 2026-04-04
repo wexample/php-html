@@ -19,7 +19,10 @@ abstract class HtmlTag
         return $this->getAttribute('id');
     }
 
-    public function setAttr(string $name, ?string $value): static
+    public function setAttr(
+        string $name,
+        ?string $value
+    ): static
     {
         if ($value === null) {
             unset($this->attributes[$name]);
