@@ -1,11 +1,12 @@
 docker:
   db: {}
 domains: []
+git:
+  publication_strategy: main_push
 global:
   name: php_html
   type: app
-  version: 0.1.0
+  version: 0.1.1
 wex:
-  version: 6.0.89
-git:
-  publication_strategy: main_push
+  migration: 1
+  version: 6.0.90
