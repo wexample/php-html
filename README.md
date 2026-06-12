@@ -1,6 +1,6 @@
 # php_html
 
-Version: 0.1.2
+Version: 0.1.3
 
 Useful, helpers for html tags manipulations
 
