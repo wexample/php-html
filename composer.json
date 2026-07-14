@@ -3,7 +3,7 @@
   "description": "Useful, helpers for html tags manipulations",
   "type": "library",
   "license": "MIT",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "autoload": {
     "psr-4": {
       "Wexample\\PhpHtml\\": "src/"
@@ -22,7 +22,7 @@
   ],
   "require": {
     "php": ">=8.2",
-    "wexample/php-helpers": "*"
+    "wexample/php-helpers": ">=2.0.0"
   },
   "require-dev": {
     "phpunit/phpunit": "*"

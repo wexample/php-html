@@ -1,6 +1,6 @@
 # php_html
 
-Version: 0.1.5
+Version: 0.1.6
 
 Useful, helpers for html tags manipulations
 
@@ -28,7 +28,7 @@ Visit the [Wexample Suite documentation](https://docs.wexample.com) for the comp
 ## Dependencies
 
 - php: >=8.2
-- wexample/php-helpers: *
+- wexample/php-helpers: >=2.0.0
 
 ## Versioning & Compatibility Policy
 
