@@ -1,0 +1,53 @@
+## Architecture
+
+The library is split into two namespaces under `src/`: `Dom` holds typed object representations of individual HTML elements; `Helper` holds procedural utilities that work from plain arrays.
+
+### Dom — object-oriented tag model
+
+{{ path("src/Dom/HtmlTag.php") }} is the abstract base every tag class extends. It owns a `$tagName` string and an associative `$attributes` array. All attribute access goes through `setAttr` / `getAttr` / `getAttribute`, where passing `null` to `setAttr` removes the key rather than storing it. `render()` iterates the array and emits the opening tag:
+
+```php
+sprintf('<%s%s>', $this->tagName, $attrs)
+// → e.g. <link rel="stylesheet" href="/app.css">
+```
+
+`__toString()` delegates to `render()`, so any tag object can be interpolated directly into a string.
+
+{{ path("src/Dom/LinkTag.php") }} sets `$tagName = 'link'` and pre-populates `rel="stylesheet"` in its constructor. It exposes typed getters and setters for `href`, `rel`, `media`, `crossorigin`, and `integrity`, each of which calls through to `setAttr` / `getAttr` on the base class.
+
+{{ path("src/Dom/ScriptTag.php") }} sets `$tagName = 'script'` and adds typed accessors for `src`, `type`, `async`, and `defer`. Because `async` and `defer` are boolean attributes, `setAsync(true)` stores `'async' => 'async'` in the array while `setAsync(false)` removes the key; `getAsync()` tests presence with `array_key_exists`. `ScriptTag` also overrides `render()` to close the element:
+
+```php
+public function render(): string
+{
+    return parent::render() . '</script>';
+}
+```
+
+#### Call path through a Dom tag
+
+1. Instantiate `LinkTag` or `ScriptTag`.
+2. Call typed setters — each writes to `$this->attributes` via `setAttr`.
+3. Call `render()` (or cast to string) — iterates `$this->attributes`, escapes values with `htmlspecialchars(..., ENT_QUOTES)`, and returns the HTML string.
+
+### Helper — procedural tag assembly
+
+{{ path("src/Helper/DomHelper.php") }} is a static utility class for callers that work with plain arrays rather than objects.
+
+`buildTagAttributes(array $attributes): string` joins a key-value array into a space-separated string of `key="value"` pairs, silently skipping any entry whose value is `null`.
+
+`buildTag(string $tagName, array $attributes, string $body, ?bool $allowSingleTag): string` calls `buildTagAttributes` internally, then wraps the result in an opening tag. When `$allowSingleTag` is `null` the method consults the `TAG_ALLOWS_AUTO_CLOSING` constant (which currently marks `div` and `span` as non-self-closing); an explicit `true` produces a self-closing `/>` only when `$body` is empty.
+
+`buildStringIdentifier(string $string): string` converts arbitrary text to a stable kebab-case identifier. The pipeline is:
+
+1. Replace every character outside `[a-zA-Z0-9-]` with `-`.
+2. Convert to kebab-case via `TextHelper::toKebab` (from `wexample/php-helpers`).
+3. Collapse consecutive dashes and trim leading/trailing dashes.
+
+The result is kept in sync with the JavaScript counterpart in `@wexample/js-helpers stringBuildIdentifier()`.
+
+#### Call path through DomHelper
+
+1. Call `DomHelper::buildTag($name, $attrs, $body)`.
+2. Internally calls `buildTagAttributes($attrs)` to produce the attribute string.
+3. Returns the complete HTML string, including body and closing tag when applicable.
