@@ -1,6 +1,6 @@
 # php_html
 
-Version: 0.1.7
+Version: 0.1.8
 
 php-html gives PHP ≥ 8.2 developers typed object representations of common HTML tags: `LinkTag` and `ScriptTag` each extend the abstract `HtmlTag`, which manages a keyed attribute map and exposes a `render()` / `__toString()` method that emits the opening tag as a string. The companion `DomHelper` provides procedural alternatives — `buildTag()` and `buildTagAttributes()` assemble HTML from a plain array of attributes, while `buildStringIdentifier()` converts arbitrary text to a stable kebab-case identifier kept in sync with its JavaScript counterpart. The library targets Wexample-suite projects and any PHP codebase that needs to construct or manipulate HTML markup without concatenating raw strings by hand.
 
@@ -80,8 +80,8 @@ Visit the [Wexample Suite documentation](https://docs.wexample.com) for the comp
 
 ## Dependencies
 
-- php: >=8.2
-- wexample/php-helpers: >=3.0.0
+- php: >=8.5
+- wexample/php-helpers: >=4.0.0
 
 ## Versioning & Compatibility Policy
 
