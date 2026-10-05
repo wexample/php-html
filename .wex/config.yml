@@ -6,7 +6,7 @@ git:
 global:
   name: php_html
   type: app
-  version: 0.1.11
+  version: 0.1.12
 wex:
-  migration: 7
-  version: 6.0.136
+  migration: 1
+  version: 6.0.139
